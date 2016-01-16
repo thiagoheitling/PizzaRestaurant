@@ -10,6 +10,9 @@
 
 #import "Kitchen.h"
 #import "Pizza.h"
+#import "BadManager.h"
+#import "GoodManager.h"
+#import "KitchenDelegate.h"
 
 int main(int argc, const char * argv[])
 {
@@ -19,6 +22,8 @@ int main(int argc, const char * argv[])
         NSLog(@"Please pick your pizza size and toppings:");
         
         Kitchen *restaurantKitchen = [Kitchen new];
+        GoodManager *brian = [[GoodManager alloc] init];
+        BadManager *marc = [[BadManager alloc] init];
         
         while (TRUE) {
             
@@ -30,6 +35,28 @@ int main(int argc, const char * argv[])
             inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             
             NSLog(@"Input was %@", inputString);
+            
+            
+            NSLog(@"Which manager would you like to select? Enter: Brian, Marc or none");
+            NSLog(@"> ");
+            char str2[100];
+            fgets (str2, 100, stdin);
+            
+            NSString *inputString2 = [[NSString alloc] initWithUTF8String:str2];
+            
+            if ([inputString2.lowercaseString isEqualToString:@"brian\n"]) {
+                restaurantKitchen.delegate = brian;
+                NSLog(@"Great! You have chosen the good manager!");
+            }
+        
+            if ([inputString2.lowercaseString isEqualToString:@"marc\n"]) {
+                restaurantKitchen.delegate = marc;
+                NSLog(@"Ops! You have chosen the bad manager!");
+            }
+            
+            if ([inputString2.lowercaseString isEqualToString:@"none\n"]) {
+                NSLog(@"No problem!");
+            }
             
             // Take the first word of the command as the size, and the rest as the toppings
             
@@ -44,7 +71,9 @@ int main(int argc, const char * argv[])
             PizzaSize aSize = [Pizza selector:sizeString];
             Pizza *pizza1 = [restaurantKitchen makePizzaWithSize:aSize andToppings:toppings];
             
-            NSLog(@"Your order: %@ pizza with the followiing toppins: %@", sizeString, pizza1.toppings);
+            NSString *toppingsString = [pizza1.toppings componentsJoinedByString:@", "];
+            
+            NSLog(@"Your order is a %@ pizza with the following toppins: %@", [pizza1 sizeAsString], toppingsString);
             
         }
 
