@@ -12,6 +12,8 @@
 		6001EC90197B502F00F97011 /* Kitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC8F197B502F00F97011 /* Kitchen.m */; };
 		D0690A971C4990A600E0F140 /* GoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0690A961C4990A600E0F140 /* GoodManager.m */; };
 		D0690A9A1C49A0C200E0F140 /* BadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0690A991C49A0C200E0F140 /* BadManager.m */; };
+		D0690A9D1C49CDB400E0F140 /* DeliveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = D0690A9C1C49CDB400E0F140 /* DeliveryService.m */; };
+		D0690AA01C49CDC900E0F140 /* DeliveryCar.m in Sources */ = {isa = PBXBuildFile; fileRef = D0690A9F1C49CDC900E0F140 /* DeliveryCar.m */; };
 		D0D137521C486EA0007C9BA0 /* Pizza.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D137511C486EA0007C9BA0 /* Pizza.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,10 @@
 		D0690A961C4990A600E0F140 /* GoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodManager.m; sourceTree = "<group>"; };
 		D0690A981C49A0C200E0F140 /* BadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadManager.h; sourceTree = "<group>"; };
 		D0690A991C49A0C200E0F140 /* BadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadManager.m; sourceTree = "<group>"; };
+		D0690A9B1C49CDB400E0F140 /* DeliveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryService.h; sourceTree = "<group>"; };
+		D0690A9C1C49CDB400E0F140 /* DeliveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryService.m; sourceTree = "<group>"; };
+		D0690A9E1C49CDC900E0F140 /* DeliveryCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryCar.h; sourceTree = "<group>"; };
+		D0690A9F1C49CDC900E0F140 /* DeliveryCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryCar.m; sourceTree = "<group>"; };
 		D0D137501C486EA0007C9BA0 /* Pizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pizza.h; sourceTree = "<group>"; };
 		D0D137511C486EA0007C9BA0 /* Pizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pizza.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +99,10 @@
 				D0690A961C4990A600E0F140 /* GoodManager.m */,
 				D0690A981C49A0C200E0F140 /* BadManager.h */,
 				D0690A991C49A0C200E0F140 /* BadManager.m */,
+				D0690A9B1C49CDB400E0F140 /* DeliveryService.h */,
+				D0690A9C1C49CDB400E0F140 /* DeliveryService.m */,
+				D0690A9E1C49CDC900E0F140 /* DeliveryCar.h */,
+				D0690A9F1C49CDC900E0F140 /* DeliveryCar.m */,
 				6001EC85197B4EC300F97011 /* Supporting Files */,
 			);
 			path = PizzaRestaurant;
@@ -157,11 +167,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0690AA01C49CDC900E0F140 /* DeliveryCar.m in Sources */,
 				D0690A971C4990A600E0F140 /* GoodManager.m in Sources */,
 				D0D137521C486EA0007C9BA0 /* Pizza.m in Sources */,
 				6001EC90197B502F00F97011 /* Kitchen.m in Sources */,
 				6001EC84197B4EC300F97011 /* main.m in Sources */,
 				D0690A9A1C49A0C200E0F140 /* BadManager.m in Sources */,
+				D0690A9D1C49CDB400E0F140 /* DeliveryService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,22 +7,29 @@
 //
 
 #import "BadManager.h"
-#import "Kitchen.h"
+#import "DeliveryService.h"
 
 @implementation BadManager
 
 -(BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings {
-   
+    
+    BOOL shouldMakePizza = YES;
+    
     for (NSString *anchovies in toppings) {
         if ([anchovies isEqualToString:@"anchovies"]) {
-            return NO;
+            shouldMakePizza = NO;
         }
     }
-    return  YES;
+    return  shouldMakePizza;
 }
 
 -(BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen {
     return NO;
+}
+
+-(void)kitchenDidMakePizza:(Pizza *)pizza {
+    [self.delivery deliverPizza:pizza];
+    NSLog(@"We didn't upgrade your pizza for free!");
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "GoodManager.h"
+#import "DeliveryService.h"
 
 @implementation GoodManager
 
@@ -18,5 +19,9 @@
     return YES;
 }
 
+-(void)kitchenDidMakePizza:(Pizza *)pizza {
+    [self.delivery deliverPizza:pizza];
+    NSLog(@"We upgraded your pizza for free!");
+}
 
 @end

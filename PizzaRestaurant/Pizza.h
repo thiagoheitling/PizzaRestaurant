@@ -11,11 +11,9 @@
 @interface Pizza : NSObject
 
 typedef enum size {
-    
     small,
     medium,
     large,
-    
 }PizzaSize;
 
 @property (nonatomic) NSArray *toppings;
@@ -23,8 +21,6 @@ typedef enum size {
 @property (nonatomic) PizzaSize size;
 
 - (instancetype)initWithPizzaSize:(PizzaSize)size andToppings:(NSArray *)toppings;
-
--(NSString *)sizeAsString;
 
 +(PizzaSize)selector:(NSString *)sizeString;
 

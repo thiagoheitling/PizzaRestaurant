@@ -12,20 +12,25 @@
 #import "Pizza.h"
 #import "BadManager.h"
 #import "GoodManager.h"
-#import "KitchenDelegate.h"
+#import "DeliveryCar.h"
+#import "DeliveryService.h"
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
         
-        NSLog(@"Please pick your pizza size and toppings:");
-        
         Kitchen *restaurantKitchen = [Kitchen new];
         GoodManager *brian = [[GoodManager alloc] init];
         BadManager *marc = [[BadManager alloc] init];
+        DeliveryService *delivery = [[DeliveryService alloc] init];
+        
+        brian.delivery = delivery;
+        marc.delivery = delivery;
         
         while (TRUE) {
+            
+            NSLog(@"Please pick your pizza size and toppings:");
             
             NSLog(@"> ");
             char str[100];
@@ -33,9 +38,6 @@ int main(int argc, const char * argv[])
             
             NSString *inputString = [[NSString alloc] initWithUTF8String:str];
             inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
-            NSLog(@"Input was %@", inputString);
-            
             
             NSLog(@"Which manager would you like to select? Enter: Brian, Marc or none");
             NSLog(@"> ");
@@ -55,7 +57,8 @@ int main(int argc, const char * argv[])
             }
             
             if ([inputString2.lowercaseString isEqualToString:@"none\n"]) {
-                NSLog(@"No problem!");
+                restaurantKitchen.delegate = marc;
+                NSLog(@"OK! We assigned a bad manager for your :)");
             }
             
             // Take the first word of the command as the size, and the rest as the toppings
@@ -69,14 +72,10 @@ int main(int argc, const char * argv[])
             // And then send some message to the kitchen...
             
             PizzaSize aSize = [Pizza selector:sizeString];
-            Pizza *pizza1 = [restaurantKitchen makePizzaWithSize:aSize andToppings:toppings];
+            [restaurantKitchen makePizzaWithSize:aSize andToppings:toppings];
             
-            NSString *toppingsString = [pizza1.toppings componentsJoinedByString:@", "];
-            
-            NSLog(@"Your order is a %@ pizza with the following toppins: %@", [pizza1 sizeAsString], toppingsString);
-            
+            NSLog(@"DeliveryService log:\n Total of pizzas delivered: %lu\n Details of orders:\n %@", [delivery.pizzasDelivered count], delivery.description);
         }
-
     }
     return 0;
 }

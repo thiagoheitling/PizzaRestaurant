@@ -14,53 +14,39 @@
 {
     self = [super init];
     if (self) {
-        
         _size = size;
         _toppings = toppings;
-        
     }
-    
     return self;
 }
 
 +(PizzaSize)selector:(NSString *)sizeString {
-    
+
     if([sizeString isEqualToString:@"large"]) {
-        
         return large;
     }
-    
     else if ([sizeString isEqualToString:@"medium"]) {
-        
         return medium;
     }
-    
     else  {
-        
         return small;
     }
 }
 
--(NSString *)sizeAsString {
+-(NSString *)description {
+    
+    NSString *aSize = @"large";
     
     if(self.size == small) {
-        
-        return @"small";
+        aSize = @"small";
     }
-    
     else if (self.size == medium) {
-        
-        return @"medium";
+        aSize = @"medium";
     }
     
-    else  {
-        
-        return @"large";
-    }
+    NSString *toppingsString = [self.toppings componentsJoinedByString:@", "];
     
-    
-    //return sizeAsString;
-    
+    return [NSString stringWithFormat:@"a %@ pizza with %@", aSize, toppingsString];
 }
 
 @end

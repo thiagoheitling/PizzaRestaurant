@@ -14,8 +14,6 @@
 
 - (Pizza *)makePizzaWithSize:(PizzaSize)size andToppings:(NSArray *)toppings;
 
-
 @property (nonatomic, weak) id<KitchenDelegate> delegate;
-
 
 @end

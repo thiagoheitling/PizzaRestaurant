@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "KitchenDelegate.h"
 
+@class DeliveryService;
+
 @interface BadManager : NSObject<KitchenDelegate>
 
+@property(nonatomic, strong) DeliveryService *delivery;
+
+-(void)kitchenDidMakePizza:(Pizza *)pizza;
 
 @end

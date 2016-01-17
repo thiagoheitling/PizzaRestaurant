@@ -10,18 +10,14 @@
 #import "Pizza.h"
 
 @class Kitchen;
-@class GoodManager;
-@class BadManager;
 
 @protocol KitchenDelegate <NSObject>
 
 -(BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings;
-
 -(BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen;
 
 @optional
 -(void)kitchenDidMakePizza:(Pizza *)pizza;
-
 
 @end
 
